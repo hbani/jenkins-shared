@@ -1,6 +1,8 @@
 def get_conf_client(client_name) {
-  def conf = yaml libraryResource('clients/config/clients.yaml')
-  println conf
+  def yamlString = libraryResource('clients/config/clients.yaml')
+  Object yaml = dsl.readYaml(text: yamlString)
+  // def conf = yaml: libraryResource('clients/config/clients.yaml')
+  println yaml
   // return conf.$client_name
 }
 
