@@ -1,0 +1,5 @@
+hfmarkets:
+  config:
+    bootstrapProperties: "bootstrap.ldn.simulation.properties"
+    configurationS3UrlPrefix: "HFMARKETS/HFMARKETS_config-update.json.gz"
+    maxVarLevel: 250k
