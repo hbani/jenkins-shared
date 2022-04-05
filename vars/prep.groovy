@@ -1,5 +1,5 @@
 def get_conf_client(client_name) {
-  def conf = yaml: libraryResource('clients/config/clients.yaml')
+  def conf = readYaml: libraryResource('clients/config/clients.yaml')
   return conf.$client_name
 }
 
