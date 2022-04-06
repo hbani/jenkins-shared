@@ -14,9 +14,9 @@ def config_download(client_name) {
       def conf = get_conf_client(client_name)
       configRoot = pwd()
 
-      downloadFileFromS3(awsCredentials, "s3://compass-simulations-config/"+conf.config.bootstrapProperties, configRoot)
+      common.downloadFileFromS3(awsCredentials, "s3://compass-simulations-config/"+conf.config.bootstrapProperties, configRoot)
 
-      hedgingConfiguration = downloadFileFromS3(awsCredentials, conf.config.configurationS3UrlPrefix, configRoot)
+      hedgingConfiguration = common.downloadFileFromS3(awsCredentials, conf.config.configurationS3UrlPrefix, configRoot)
   }
   return hedgingConfiguration
 }
