@@ -1,8 +1,7 @@
 def get_conf_client(client_name) {
   def yamlString = libraryResource('clients/config/clients.yaml')
   Object conf = readYaml(text: yamlString)
-  println conf."$client_name"
-  // return conf.$client_name
+  return conf."$client_name"
 }
 
 def get_aws_cred() {
