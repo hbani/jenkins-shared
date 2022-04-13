@@ -21,7 +21,7 @@ def config_download(client_name) {
   return hedgingConfiguration
 }
 
-def create_output_path(client_name) {
+def create_output_path() {
   dir ("output") {
       outputPath = pwd()
 
