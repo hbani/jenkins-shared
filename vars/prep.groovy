@@ -13,6 +13,7 @@ def save_conf_client(client_name,config) {
   for ( e in config ) {
     getconfig.put(e.key,e.value)
     }
+  println(getconfig)
   writeYaml(file: "${WORKSPACE}/${client_name}.yaml",data: getconfig)
   def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
   return clientYaml
