@@ -9,7 +9,7 @@ def get_conf_client(client_name) {
   return conf."$client_name"
 }
 
-def save_conf_client(client_name,config[:]) {
+def save_conf_client(client_name,config) {
   getconfig = get_conf_client(client_name)
   getconfig.put(config)
   writeYaml(file: "${WORKSPACE}/${client_name}.yaml",data: getconfig)
