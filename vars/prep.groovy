@@ -28,7 +28,7 @@ def config_download(client_name) {
 
       hedgingConfiguration = common.downloadFileFromS3(awsCredentials,  "s3://compass-simulations-config/"+conf.config.configurationS3UrlPrefix, configRoot)
   }
-  return [configRoot: configRoot, hedgingconfig: hedgingconfig]
+  return [configRoot: configRoot, hedgingConfiguration: hedgingConfiguration]
 }
 
 def create_output_path() {
