@@ -30,7 +30,7 @@ def config_download(client_name) {
 
       hedgingConfiguration = common.downloadFileFromS3(awsCredentials,  "s3://compass-simulations-config/"+conf.config.configurationS3UrlPrefix, configRoot)
   }
-  save_conf_client('hfmarkets'),[configRoot: configRoot, hedgingConfiguration: hedgingConfiguration])
+  save_conf_client('hfmarkets',[configRoot: configRoot, hedgingConfiguration: hedgingConfiguration])
 }
 
 def create_output_path() {
