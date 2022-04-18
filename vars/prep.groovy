@@ -1,7 +1,18 @@
+import org.mahimarkets.Constants
 def get_conf_client(client_name) {
+  if ( fileExists "${WORKSPACE}/${client_name}.yaml" ) {
+    def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
+    return clientYaml
+  }
   def yamlString = libraryResource('clients/config/clients.yaml')
   Object conf = readYaml(text: yamlString)
   return conf."$client_name"
+}
+
+def save_conf_client(client_name,config[:]) {
+  getconfig = get_conf_client(client_name)
+  getconfig.put(config)
+  writeYaml(file: "${WORKSPACE}/${client_name}.yaml",data: getconfig)
 }
 
 def get_aws_cred() {
@@ -18,7 +29,7 @@ def config_download(client_name) {
 
       hedgingConfiguration = common.downloadFileFromS3(awsCredentials,  "s3://compass-simulations-config/"+conf.config.configurationS3UrlPrefix, configRoot)
   }
-  return hedgingConfiguration
+  return [configRoot: configRoot, hedgingconfig: hedgingconfig]
 }
 
 def create_output_path() {

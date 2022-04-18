@@ -13,6 +13,15 @@ def downloadFileFromS3(awsCredentials, s3Url, localDir) {
    return new File(localDir, s3Url.substring(s3Url.lastIndexOf('/') + 1));
 }
 
+def to_from() {
+  def toDate = new Date()
+  def fromDate = new Date(toDate.getTime() - (1000 * 60 * 60 * 24 * 7))
+  def to = java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss").withZone(java.time.ZoneOffset.UTC).toFormat().format(toDate.toInstant())
+  def from = java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss").withZone(java.time.ZoneOffset.UTC).toFormat().format(fromDate.toInstant())
+  def map = [to: to, from: from]
+  return map
+}
+
 def shellString(s) {
     if (s.trim() == '') {
         return '';
