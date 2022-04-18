@@ -1,6 +1,6 @@
 import org.mahimarkets.Constants
 def get_conf_client(client_name) {
-  if ( fileExists "${WORKSPACE}/${client_name}.yaml" ) {
+  if ( fileExists("${WORKSPACE}/${client_name}.yaml") ) {
     def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
     return clientYaml
   }
