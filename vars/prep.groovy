@@ -9,7 +9,7 @@ def get_conf_client(client_name) {
 }
 
 def save_conf_client(client_name,config) {
-  getconfig = get_conf_client(client_name)
+  Object getconfig = get_conf_client(client_name)
   for ( e in config ) {
     getconfig.config.put(e.key,e.value)
     }
