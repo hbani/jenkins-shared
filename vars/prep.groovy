@@ -14,7 +14,7 @@ def save_conf_client(client_name,config) {
     getconfig.config.put(e.key,e.value)
     }
   println(getconfig)
-  if (getconfig instanceof Map) {
+  if (getconfig instanceof Collection) {
   println false
   }
   println(getconfig.getClass())
