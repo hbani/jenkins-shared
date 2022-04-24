@@ -14,8 +14,12 @@ def save_conf_client(client_name,config) {
     getconfig.config.put(e.key,e.value)
     }
   println(getconfig)
-  if (getconfig instanceof Collection) {
-  println false
+  if (getconfig instanceof Map) {
+  for (Object entry : ((Map)getconfig).entrySet()) {
+                if (!isValidObjectType(((Map.Entry)entry).getKey()) || !isValidObjectType(((Map.Entry)entry).getValue())) {
+                    return false;
+                }
+            }
   }
   println(getconfig.getClass())
   writeYaml(file: "${WORKSPACE}/${client_name}.yaml",data: getconfig,overwrite: true)
