@@ -30,7 +30,7 @@ def print_params(client_name) {
   From: ${to_from.from}
   To: ${to_from.to}
   HybridInstrumentToProfileMappings: ${conf.config.hybridInstrumentToProfileMappings}
-  Additional args: ${constants.additionalArgs}
+  Additionalargs: ${constants.additionalArgs}
   DTASpeedScaling: ${conf.config.dynamicOrderSpeedScaling}
   Sysprops: ${constants.additionalSysprops}
   Output: ${constants.outputPath}
