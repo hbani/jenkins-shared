@@ -6,4 +6,3 @@ def additionalArgs
 def fastMarkets
 def hybridInstrumentToProfileMappings
 def pos
-def fastMarkets
