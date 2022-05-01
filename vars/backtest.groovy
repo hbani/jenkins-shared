@@ -26,8 +26,7 @@ def print_params(client_name) {
   Customer: ${client_name}
   Goal: ${params.goal}
   Changes: ${params.changes}
-  MaxVarLevel: ${conf.config.maxVarLevel}
-  Config: ${conf.config.configurationS3Url} -> ${constants.hedgingConfiguration}
+  MaxVarLevel: ${conf.config.maxVarLevel
   From: ${to_from.from}
   To: ${to_from.to}
   HybridInstrumentToProfileMappings: ${conf.config.hybridInstrumentToProfileMappings}
