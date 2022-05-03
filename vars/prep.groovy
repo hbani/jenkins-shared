@@ -1,5 +1,5 @@
 @groovy.transform.Field
-def yourField = [:]
+def yourField
 
 def get_conf_client(client_name) {
   if ( fileExists("${WORKSPACE}/${client_name}.yaml") ) {
