@@ -1,3 +1,4 @@
+@Grab('org.yaml:snakeyaml:1.24')
 import org.yaml.snakeyaml.Yaml
 
 def get_conf_client(client_name) {
