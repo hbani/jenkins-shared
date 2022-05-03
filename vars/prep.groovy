@@ -11,7 +11,6 @@ def get_conf_client(client_name) {
 }
 
 def save_conf_client(client_name,config) {
-import org.jenkinsci.plugins.pipeline.utility.steps.shaded.org.yaml.snakeyaml.Yaml
   Map getconfig = get_conf_client(client_name)
   for ( e in config ) {
     getconfig.config.put(e.key,e.value)
