@@ -1,26 +1,24 @@
 def initialize_backtest_vars(client_name) {
     def conf = prep.get_conf_client(client_name)
-    constants.additionalSysprops = params.additionalSysprops.split(/[\r\n]/).collect { shellString(it) }.join(' ')
-    constants.additionalArgs = params.additionalArgs.split(/[\r\n]/).collect { shellString(it) }.join(' ')
+    additionalSysprops = conf.config.additionalSysprops.split(/[\r\n]/).collect { shellString(it) }.join(' ')
+    additionalArgs = conf.config.additionalArgs.split(/[\r\n]/).collect { shellString(it) }.join(' ')
 
-    if(params.positionsS3Url != null && params.positionsS3Url != ""){
-        constants.pos="--positionsInput="+params.positionsS3Url
+    if(conf.config.positionsS3Url != null && conf.config.positionsS3Url != ""){
+        pos="--positionsInput="+conf.config.positionsS3Url
     }
 
-    constants.fastMarkets = "    --forceConfig=pricing.fastmarket.config=null \\"
+    fastMarkets = "    --forceConfig=pricing.fastmarket.config=null \\"
     if (conf.config.disableFastMarkets != null && conf.config.disableFastMarkets == "false"){
-        constants.fastMarkets = " \\"
+        fastMarkets = " \\"
     }
 
-    constants.hybridInstrumentToProfileMappings = " \\"
+    hybridInstrumentToProfileMappings = " \\"
     if (conf.config.hybridInstrumentToProfileMappings != null && conf.config.hybridInstrumentToProfileMappings != ""){
-        constants.hybridInstrumentToProfileMappings="--forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:"+conf.config.hybridInstrumentToProfileMappings+" \\"
+        hybridInstrumentToProfileMappings="--forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:"+conf.config.hybridInstrumentToProfileMappings+" \\"
     }
+    save_conf_client('hfmarkets',[additionalSysprops: additionalSysprops, additionalArgs: additionalArgs,pos: pos, fastMarkets: fastMarkets, hybridInstrumentToProfileMappings: hybridInstrumentToProfileMappings])
 }
 
-def hussain() {
-println prep.yourField
-}
 def print_params(client_name) {
   def conf = prep.get_conf_client(client_name)
   to_from = common.to_from()
@@ -31,11 +29,11 @@ def print_params(client_name) {
   MaxVarLevel: ${conf.config.maxVarLevel}
   From: ${to_from.from}
   To: ${to_from.to}
-  Config: ${params.configurationS3Url} -> ${conf.config.hedgingConfiguration}
+  Config: ${conf.config.configurationS3Url} -> ${conf.config.hedgingConfiguration}
   HybridInstrumentToProfileMappings: ${conf.config.hybridInstrumentToProfileMappings}
-  Additionalargs: ${constants.additionalArgs}
+  Additionalargs: ${conf.config..additionalArgs}
   DTASpeedScaling: ${conf.config.dynamicOrderSpeedScaling}
-  Sysprops: ${constants.additionalSysprops}
-  Output: ${constants.outputPath}
+  Sysprops: ${conf.config.additionalSysprops}
+  Output: ${conf.config.outputPath}
   """
 }
