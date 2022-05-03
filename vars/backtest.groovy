@@ -31,7 +31,7 @@ def print_params(client_name) {
   To: ${to_from.to}
   Config: ${conf.config.configurationS3Url} -> ${conf.config.hedgingConfiguration}
   HybridInstrumentToProfileMappings: ${conf.config.hybridInstrumentToProfileMappings}
-  Additionalargs: ${conf.config..additionalArgs}
+  Additionalargs: ${conf.config.additionalArgs}
   DTASpeedScaling: ${conf.config.dynamicOrderSpeedScaling}
   Sysprops: ${conf.config.additionalSysprops}
   Output: ${conf.config.outputPath}
