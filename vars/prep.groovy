@@ -17,7 +17,9 @@ def save_conf_client(client_name,config) {
   println(getconfig)
   println(map)
   println(getconfig.getClass())
-  sh  """rm -rf "${WORKSPACE}/${client_name}.yaml""""
+  sh  """
+  rm -rf "${WORKSPACE}/${client_name}.yaml"
+  """
   writeYaml(file: "${WORKSPACE}/${client_name}.yaml",data: getconfig,returnText: true)
   def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
   return clientYaml
