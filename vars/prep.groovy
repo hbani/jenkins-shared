@@ -1,4 +1,4 @@
-@org.jenkinsci.plugins.pipeline.utility.steps.shaded.org.yaml.snakeyaml.Yaml
+import org.jenkinsci.plugins.pipeline.utility.steps.shaded.org.yaml.snakeyaml.Yaml
 
 def get_conf_client(client_name) {
   if ( fileExists("${WORKSPACE}/${client_name}.yaml") ) {
