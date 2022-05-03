@@ -31,6 +31,7 @@ def print_params(client_name) {
   MaxVarLevel: ${conf.config.maxVarLevel}
   From: ${to_from.from}
   To: ${to_from.to}
+  Config: ${params.configurationS3Url} -> ${conf.config.hedgingConfiguration}
   HybridInstrumentToProfileMappings: ${conf.config.hybridInstrumentToProfileMappings}
   Additionalargs: ${constants.additionalArgs}
   DTASpeedScaling: ${conf.config.dynamicOrderSpeedScaling}
