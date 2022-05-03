@@ -16,7 +16,7 @@ rm -rf "${WORKSPACE}/${client_name}.yaml"
 def save_conf_client(client_name,config) {
   Map getconfig = get_conf_client(client_name)
   for ( e in config ) {
-    getconfig.config.put(e.key,e.value)
+    getconfig.config.put(e.key,"${e.value}")
     }
   println(getconfig)
   println(getconfig.getClass())
