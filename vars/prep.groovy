@@ -22,10 +22,7 @@ def save_conf_client(client_name,config) {
   sh  """
   rm -rf "${WORKSPACE}/${client_name}.yaml"
   """
-  DumperOptions options = new DumperOptions()
-  options.setPrettyFlow(true)
-  options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK)
-  yaml = new Yaml(options)
+  yaml = new Yaml()
   yaml.dump(map, new FileWriter("${WORKSPACE}/${client_name}.yaml"))
   // return clientYaml
 }
