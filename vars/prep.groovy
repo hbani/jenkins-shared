@@ -18,14 +18,12 @@ def save_conf_client(client_name,config) {
   for ( e in config ) {
     getconfig.config.put(e.key,"${e.value}")
     }
-  println(getconfig)
-  println(getconfig.getClass())
   sh  """
   rm -rf "${WORKSPACE}/${client_name}.yaml"
   """
   writeYaml(file: "${WORKSPACE}/${client_name}.yaml",data: getconfig,returnText: true)
   def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
-  return clientYaml
+  println clientYaml
 }
 
 def get_aws_cred() {
