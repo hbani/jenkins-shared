@@ -1,4 +1,5 @@
-
+@Grab(group='org.yaml', module='snakeyaml', version='1.17')
+import org.yaml.snakeyaml.Yaml
 
 def get_conf_client(client_name) {
   if ( fileExists("${WORKSPACE}/${client_name}.yaml") ) {
