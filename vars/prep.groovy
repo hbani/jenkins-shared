@@ -2,6 +2,9 @@ import org.yaml.snakeyaml.Yaml
 
 def get_conf_client(client_name) {
   if ( fileExists("${WORKSPACE}/${client_name}.yaml") ) {
+  sh  """
+  rm -rf "${WORKSPACE}/${client_name}.yaml"
+  """
     def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
     return clientYaml
   }
