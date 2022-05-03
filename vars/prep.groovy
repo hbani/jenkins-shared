@@ -1,3 +1,5 @@
+import org.yaml.snakeyaml.Yaml
+
 def get_conf_client(client_name) {
   if ( fileExists("${WORKSPACE}/${client_name}.yaml") ) {
     def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
@@ -20,9 +22,12 @@ def save_conf_client(client_name,config) {
   sh  """
   rm -rf "${WORKSPACE}/${client_name}.yaml"
   """
-  writeYaml(file: "${WORKSPACE}/${client_name}.yaml",data: getconfig,returnText: true)
-  def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
-  return clientYaml
+  DumperOptions options = new DumperOptions()
+  options.setPrettyFlow(true)
+  options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK)
+  yaml = new Yaml(options)
+  yaml.dump(map, new FileWriter("${WORKSPACE}/${client_name}.yaml"))
+  // return clientYaml
 }
 
 def get_aws_cred() {
