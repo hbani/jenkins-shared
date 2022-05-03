@@ -9,14 +9,14 @@ rm -rf "${WORKSPACE}/${client_name}.yaml"
     return clientYaml
   }
   def yamlString = libraryResource('clients/config/clients.yaml')
-  Object conf = readYaml(text: yamlString)
+  Map conf = readYaml(text: yamlString)
   return conf."$client_name"
 }
 
 def save_conf_client(client_name,config) {
   Map getconfig = get_conf_client(client_name)
   for ( e in config ) {
-    getconfig.config.put(e.key,string(e.value))
+    getconfig.config.put(e.key,e.value)
     }
   println(getconfig)
   println(map)
