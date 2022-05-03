@@ -18,7 +18,9 @@ def initialize_backtest_vars(client_name) {
     }
 }
 
-
+def hussain() {
+println prep.yourField
+}
 def print_params(client_name) {
   def conf = prep.get_conf_client(client_name)
   to_from = common.to_from()
