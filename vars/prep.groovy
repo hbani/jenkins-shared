@@ -1,5 +1,4 @@
-@groovy.transform.Field
-def yourField
+@org.jenkinsci.plugins.pipeline.utility.steps.shaded.org.yaml.snakeyaml.Yaml
 
 def get_conf_client(client_name) {
   if ( fileExists("${WORKSPACE}/${client_name}.yaml") ) {
@@ -16,6 +15,16 @@ def save_conf_client(client_name,config) {
   for ( e in config ) {
     getconfig.config.put(e.key,e.value)
     }
+  def map = [1:20, a:30, 2:42, 4:34, ba:67, 6:39, 7:49]
+  println(getconfig)
+  println(map)
+  println(getconfig.getClass())
+  sh  """
+  rm -rf "${WORKSPACE}/${client_name}.yaml"
+  """
+  yaml = new Yaml()
+  yaml.dump(map, new FileWriter("${WORKSPACE}/${client_name}.yaml"))
+  // return clientYaml
 }
 
 def get_aws_cred() {
@@ -32,8 +41,7 @@ def config_download(client_name) {
 
       hedgingConfiguration = common.downloadFileFromS3(awsCredentials,  "s3://compass-simulations-config/"+conf.config.configurationS3UrlPrefix, configRoot)
   }
-    yourField = [configRoot: configRoot, hedgingConfiguration: hedgingConfiguration]
-  // save_conf_client('hfmarkets',[configRoot: configRoot, hedgingConfiguration: hedgingConfiguration])
+  save_conf_client('hfmarkets',[configRoot: configRoot, hedgingConfiguration: hedgingConfiguration])
 }
 
 def create_output_path() {
