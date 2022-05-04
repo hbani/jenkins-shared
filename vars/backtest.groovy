@@ -10,7 +10,7 @@ def initialize_backtest_vars(client_name) {
 
     if (conf.config.additionalArgs != null && conf.config.additionalArgs != ""){
       println conf.config.additionalArgs
-      additionalArgs = conf.config.additionalArgs.split.collect { common.shellString(it) }.join(' ')
+      additionalArgs = conf.config.additionalArgs.collect { common.shellString(it) }.join(' ')
     }
 
     if(conf.config.positionsS3Url != null && conf.config.positionsS3Url != ""){
