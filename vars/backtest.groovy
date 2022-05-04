@@ -1,6 +1,6 @@
 def initialize_backtest_vars(client_name) {
     def conf = prep.get_conf_client(client_name)
-    if (conf.config.additionalSysprops != != null && conf.config.additionalSysprops != ""){
+    if (conf.config.additionalSysprops != null && conf.config.additionalSysprops != ""){
       additionalSysprops = conf.config.additionalSysprops.split(/[\r\n]/).collect { common.shellString(it) }.join(' ')
       }
 
