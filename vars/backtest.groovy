@@ -81,7 +81,7 @@ echo \
     -Dbacktest.alternateProcessNames=${params.alternateProcessNames} \
     -Dcompass.backtest=true \
     -Dfile.encoding=UTF-8 \
-    ${additionalSysprops} \
+    ${conf.config.additionalSysprops} \
     com.x.integration.analytics.CompassSimulationProcess \
     --name=backtest \
     --env=local-live,backtest \
