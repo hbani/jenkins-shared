@@ -20,6 +20,7 @@ def save_conf_client(client_name,config) {
   """
   writeYaml(file: "${WORKSPACE}/${client_name}.yaml",data: getconfig,returnText: true)
   def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
+  println(clientYaml)
 }
 
 def get_aws_cred() {
