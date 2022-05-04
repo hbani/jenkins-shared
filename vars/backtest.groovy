@@ -24,7 +24,7 @@ def initialize_backtest_vars(client_name) {
     if (conf.config.hybridInstrumentToProfileMappings != null && conf.config.hybridInstrumentToProfileMappings != ""){
         hybridInstrumentToProfileMappings="--forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:"+conf.config.hybridInstrumentToProfileMappings+" \\"
     }
-    save_conf_client('hfmarkets',[additionalSysprops: additionalSysprops, additionalArgs: additionalArgs,pos: pos, fastMarkets: fastMarkets, hybridInstrumentToProfileMappings: hybridInstrumentToProfileMappings])
+    prep.save_conf_client('hfmarkets',[additionalSysprops: additionalSysprops, additionalArgs: additionalArgs,pos: pos, fastMarkets: fastMarkets, hybridInstrumentToProfileMappings: hybridInstrumentToProfileMappings])
 }
 
 def print_params(client_name) {
