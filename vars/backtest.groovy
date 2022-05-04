@@ -1,8 +1,13 @@
 def initialize_backtest_vars(client_name) {
     def conf = prep.get_conf_client(client_name)
-    additionalSysprops = conf.config.additionalSysprops.split(/[\r\n]/).collect { shellString(it) }.join(' ')
-    additionalArgs = conf.config.additionalArgs.split(/[\r\n]/).collect { shellString(it) }.join(' ')
+    if (conf.config.additionalSysprops != != null && conf.config.additionalSysprops != ""){
+      additionalSysprops = conf.config.additionalSysprops.split(/[\r\n]/).collect { common.shellString(it) }.join(' ')
+      }
 
+    if (conf.config.additionalArgs != != null && conf.config.additionalArgs != ""){
+      additionalArgs = conf.config.additionalArgs.split(/[\r\n]/).collect { common.shellString(it) }.join(' ')
+    }
+    
     if(conf.config.positionsS3Url != null && conf.config.positionsS3Url != ""){
         pos="--positionsInput="+conf.config.positionsS3Url
     }
