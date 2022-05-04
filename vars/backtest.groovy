@@ -4,10 +4,12 @@ def initialize_backtest_vars(client_name) {
     def additionalArgs = ""
     def pos = ""
     if (conf.config.additionalSysprops != null && conf.config.additionalSysprops != ""){
+      println conf.config.additionalSysprops
       additionalSysprops = conf.config.additionalSysprops.split(/[\r\n]/).collect { common.shellString(it) }.join(' ')
       }
 
     if (conf.config.additionalArgs != null && conf.config.additionalArgs != ""){
+      println conf.config.additionalArgs
       additionalArgs = conf.config.additionalArgs.split(/[\r\n]/).collect { common.shellString(it) }.join(' ')
     }
 
