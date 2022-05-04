@@ -3,11 +3,11 @@ def initialize_backtest_vars(client_name) {
     def additionalSysprops = ""
     def additionalArgs = ""
     def pos = ""
-    if (conf.config.additionalSysprops != null && conf.config.additionalSysprops != "" && (conf.config.additionalSysprops instanceof java.util.ArrayLis)){
+    if (conf.config.additionalSysprops != null && conf.config.additionalSysprops != "" && conf.config.additionalSysprops.getClass().isArray()){
       additionalSysprops = conf.config.additionalSysprops.collect { common.shellString(it) }.join(' ')
       }
 
-    if (conf.config.additionalArgs != null && conf.config.additionalArgs != "" && (conf.config.additionalArgs instanceof java.util.ArrayLis)){
+    if (conf.config.additionalArgs != null && conf.config.additionalArgs != "" && conf.config.additionalArgs.getClass().isArray()){
       println conf.config.additionalArgs
       additionalArgs = conf.config.additionalArgs.collect { common.shellString(it) }.join(' ')
     }
