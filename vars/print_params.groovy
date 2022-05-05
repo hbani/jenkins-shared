@@ -1,6 +1,6 @@
 def call(client_name) {
-  def conf = prep.get_conf_client(client_name)
-  to_from = common.to_from()
+  def conf = get_conf_client(client_name)
+  to_from = to_from()
   echo """
   Customer: ${client_name}
   Goal: ${params.goal}

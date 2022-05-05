@@ -8,5 +8,4 @@ def call(client_name,config) {
   """
   writeYaml(file: "${WORKSPACE}/${client_name}.yaml",data: getconfig,returnText: true)
   def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
-  println(clientYaml)
 }
