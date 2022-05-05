@@ -3,6 +3,6 @@ def call(client_name,config) {
   for ( e in config ) {
     getconfig.config.put(e.key,"${e.value}")
     }
-  writeYaml(file: "${WORKSPACE}/${client_name}.yaml",data: getconfig,returnText: true)
+  writeYaml(file: "${WORKSPACE}/${client_name}.yaml",data: getconfig,overwrite: true)
   def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
 }
