@@ -8,7 +8,6 @@ def call(client_name) {
       }
 
     if (conf.config.additionalArgs != null && conf.config.additionalArgs != "" && (conf.config.additionalArgs instanceof java.util.ArrayList)){
-      println conf.config.additionalArgs
       additionalArgs = conf.config.additionalArgs.collect { shellString(it) }.join(' ')
     }
 
