@@ -8,5 +8,5 @@ def call(client_name) {
 
       hedgingConfiguration = downloadFileFromS3(awsCredentials,  "s3://compass-simulations-config/"+conf.config.configurationS3UrlPrefix, configRoot)
   }
-  save_conf_client('hfmarkets',[configRoot: configRoot, hedgingConfiguration: hedgingConfiguration])
+  save_conf_client(client_name,[configRoot: configRoot, hedgingConfiguration: hedgingConfiguration])
 }
