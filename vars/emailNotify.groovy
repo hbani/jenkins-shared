@@ -1,26 +1,4 @@
-def to_from() {
-  def toDate = new Date()
-  def fromDate = new Date(toDate.getTime() - (1000 * 60 * 60 * 24 * 7))
-  def to = java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss").withZone(java.time.ZoneOffset.UTC).toFormat().format(toDate.toInstant())
-  def from = java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss").withZone(java.time.ZoneOffset.UTC).toFormat().format(fromDate.toInstant())
-  def map = [to: to, from: from]
-  return map
-}
-
-def shellString(s) {
-    if (s.trim() == '') {
-        return '';
-    }
-
-    // Replace ' with '\'' (https://unix.stackexchange.com/a/187654/260156). Then enclose with '...'.
-    // 1) Why not replace \ with \\? Because '...' does not treat backslashes in a special way.
-    // 2) And why not use ANSI-C quoting? I.e. we could replace ' with \'
-    // and enclose using $'...' (https://stackoverflow.com/a/8254156/4839573).
-    // Because ANSI-C quoting is not yet supported by Dash (default shell in Ubuntu & Debian) (https://unix.stackexchange.com/a/371873).
-    '\'' + s.replace('\'', '\'\\\'\'') + '\''
-}
-
-def emailNotify(client_name,email_notify) {
+def call(client_name,email_notify) {
 def conf = get_conf_client(client_name)
 if (email_notify) {
     echo "Sending email to ${email_notify} - status is ${currentBuild.result}"
