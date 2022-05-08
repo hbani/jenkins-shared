@@ -6,6 +6,6 @@ def call(client_name) {
   sh "ls -al ${WORKSPACE}/jenkins/config/analytics/jenkinsfiles/customer-simulation-client.yaml"
   def file = new File(${WORKSPACE}/jenkins/config/analytics/jenkinsfiles/customer-simulation-client.yaml)
   assert file.exists() : "Clients config file not found"
-  def conf = readYaml(file:'${WORKSPACE}/jenkins/config/analytics/jenkinsfiles/customer-simulation-client.yaml')
+  def conf = readYaml(file: "${WORKSPACE}/jenkins/config/analytics/jenkinsfiles/customer-simulation-client.yaml")
   return conf."$client_name"
 }
