@@ -13,7 +13,7 @@ if (email_notify) {
 <tr><td><b>Changes:</b></td><td>${params.changes}</td></tr>
 <tr><td><b>Data:</b></td><td>${params.inputS3Url}</td></tr>
 <tr><td><b>MaxVarLevel:</b></td><td>${conf.config.maxVarLevel}</td></tr>
-<tr><td><b>Config:</b></td><td>$conf.config.configurationS3Url}</td></tr>
+<tr><td><b>Config:</b></td><td>${conf.config.configurationS3Url}</td></tr>
 </table>
 """
 
