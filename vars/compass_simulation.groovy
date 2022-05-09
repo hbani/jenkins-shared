@@ -11,7 +11,7 @@ df -h
 free -m
 du -ms /tmp/*
 
-echo \
+java \
     -cp current/lib:current/lib/* \
     -Duser.timezone=UTC \
     -Xmx11G \
