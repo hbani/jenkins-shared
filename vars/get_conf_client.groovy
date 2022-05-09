@@ -4,5 +4,5 @@ def call(client_name) {
     return clientYaml
   }
   def conf = readYaml(file: "${WORKSPACE}/jenkins/config/analytics/jenkinsfiles/customer-simulation-client.yaml")
-  return conf.default + conf."$client_name"
+  return conf.defaults + conf."$client_name"
 }
