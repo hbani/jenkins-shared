@@ -5,14 +5,14 @@ def call(client_name) {
   Customer: ${client_name}
   Goal: ${params.goal}
   Changes: ${params.changes}
-  MaxVarLevel: ${conf.config.maxVarLevel}
+  MaxVarLevel: ${conf.maxVarLevel}
   From: ${to_from.from}
   To: ${to_from.to}
-  Config: ${conf.config.configurationS3Url} -> ${conf.config.hedgingConfiguration}
-  HybridInstrumentToProfileMappings: ${conf.config.hybridInstrumentToProfileMappings}
-  Additionalargs: ${conf.config.additionalArgs}
-  DTASpeedScaling: ${conf.config.dynamicOrderSpeedScaling}
-  Sysprops: ${conf.config.additionalSysprops}
-  Output: ${conf.config.outputPath}
+  Config: ${conf.configurationS3Url} -> ${conf.hedgingConfiguration}
+  HybridInstrumentToProfileMappings: ${conf.hybridInstrumentToProfileMappings}
+  Additionalargs: ${conf.additionalArgs}
+  DTASpeedScaling: ${conf.dynamicOrderSpeedScaling}
+  Sysprops: ${conf.additionalSysprops}
+  Output: ${conf.outputPath}
   """
 }

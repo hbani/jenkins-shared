@@ -12,8 +12,8 @@ if (email_notify) {
 <tr><td><b>Goal:</b></td><td>${params.goal}</td></tr>
 <tr><td><b>Changes:</b></td><td>${params.changes}</td></tr>
 <tr><td><b>Data:</b></td><td>${params.inputS3Url}</td></tr>
-<tr><td><b>MaxVarLevel:</b></td><td>${conf.config.maxVarLevel}</td></tr>
-<tr><td><b>Config:</b></td><td>${conf.config.configurationS3Url}</td></tr>
+<tr><td><b>MaxVarLevel:</b></td><td>${conf.maxVarLevel}</td></tr>
+<tr><td><b>Config:</b></td><td>${conf.configurationS3Url}</td></tr>
 </table>
 """
 
@@ -28,7 +28,7 @@ ${BUILD_LOG_REGEX, regex="\\\\*\\\\*REPORT\\\\*\\\\*"}
 
 <h3>Backtest Arguments</h3>
 <pre>
-${conf.config.additionalArgs}
+${conf.additionalArgs}
 </pre>
 
 <h3>System Properties</h3>

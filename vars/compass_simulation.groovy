@@ -4,8 +4,8 @@ to_from = to_from()
 sh  """
 cd /app/fx/apps/mahifx/
 
-sed -i 's/arbHedger1/backtest/g' \"${conf.config.hedgingConfiguration}\"
-sed -i 's/hybridHedger1/backtest/g' \"${conf.config.hedgingConfiguration}\"
+sed -i 's/arbHedger1/backtest/g' \"${conf.hedgingConfiguration}\"
+sed -i 's/hybridHedger1/backtest/g' \"${conf.hedgingConfiguration}\"
 
 df -h
 free -m
@@ -21,7 +21,7 @@ echo \
     -XX:+HeapDumpOnOutOfMemoryError \
     -DbuilderHelperFactory=com.x.integration.MahiSimulationProcessBuilderHelperFactory \
     -DGraphPerformanceInstrumentation.PERFORMANCE_INSTRUMENTATION_MODE=Minimal \
-    -Dbootstrap.properties=file:${conf.config.configRoot}/${conf.config.bootstrapProperties} \
+    -Dbootstrap.properties=file:${conf.configRoot}/${conf.bootstrapProperties} \
     -Dlic.file=file:shared/conf/license.lic \
     -DFileStorageProcessBuilderHelper.DataStore=/media/ephemeral0/tickstore/ \
     -Droot.log.level=ERROR \
@@ -31,29 +31,29 @@ echo \
     -Dbacktest.alternateProcessNames=${params.alternateProcessNames} \
     -Dcompass.backtest=true \
     -Dfile.encoding=UTF-8 \
-    ${conf.config.additionalSysprops} \
+    ${conf.additionalSysprops} \
     com.x.integration.analytics.CompassSimulationProcess \
     --name=backtest \
     --env=local-live,backtest \
-    --loadConfig=\"${conf.config.configurationS3Url}\" \
-    ${conf.config.fastMarkets}
-    --forceConfig=risk.varEquivalentRisk.maxVarLevel=double:${conf.config.maxVarLevel} \
-    --forceConfig=hedging.rules.aggressive.dynamicOrderSpeedScaling=double:${conf.config.dynamicOrderSpeedScaling} \
+    --loadConfig=\"${conf.configurationS3Url}\" \
+    ${conf.fastMarkets}
+    --forceConfig=risk.varEquivalentRisk.maxVarLevel=double:${conf.maxVarLevel} \
+    --forceConfig=hedging.rules.aggressive.dynamicOrderSpeedScaling=double:${conf.dynamicOrderSpeedScaling} \
     --forceConfig=analytics.enrichedTradeOutput.persist=boolean:false \
     --forceConfig=analytics.enrichedTradeOutputSummary.persist=boolean:false \
     --forceConfig=analytics.hedgingDecisions.persist=boolean:false \
-    ${conf.config.hybridInstrumentToProfileMappings}
+    ${conf.hybridInstrumentToProfileMappings}
     --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
-    --jmsStoreUrl=\"${conf.config.jmsStoreUrl}\" \
-    --tickStoreUrl=\"${conf.config.tickStoreUrl}\" \
-    --outPath=\"${conf.config.outputPath}\" \
+    --jmsStoreUrl=\"${conf.jmsStoreUrl}\" \
+    --tickStoreUrl=\"${conf.tickStoreUrl}\" \
+    --outPath=\"${conf.outputPath}\" \
     --client=\"${client_name}\" \
     --jobId=\"${BUILD_TAG}\" \
     --jobDescription=\"${params.goal}\" \
     --from=\"${to_from.from}\" \
     --to=\"${to_from.to}\" \
-    ${conf.config.additionalArgs} \
-    ${conf.config.pos} \
+    ${conf.additionalArgs} \
+    ${conf.pos} \
 
 """
 }
