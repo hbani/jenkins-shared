@@ -4,7 +4,7 @@ com.x.integration.pricing.SpreadDistributionProcess \
 --jobId=${environment.get("BUILD_TAG")} \
 --jobDescription="${description}" \
 --outPath="${outputPath}" \
-<% out << (benchmarkMarkets?.trim() ? "\" : benchmarkMarkets) %> \
+<% out << (benchmarkMarkets?.trim() ? "\" :benchmarkMarkets) %> \
 --useAggregateSpread=${useAggregateSpread} \
 --tickStoreUrl=${tickStoreUrl} \
 --quantile=${percentile} \
