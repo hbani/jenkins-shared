@@ -9,7 +9,7 @@ liquidity:
   useAggregateSpread: true
   tickStoreUrl: "bootstrap.ldn.simulation.properties"
   percentile: 0.5
-  market: CLIENT_PRICE_NYC
+  pricingMarket: CLIENT_PRICE_NYC
   benchmarkMarkets: EXISTING_PEPPER_POOL
   bootstrapProperties: bootstrap.simulation.properties
   tickStoreUrl: s3://pepperstone-production-tickstore/pepperstone/pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com/starfishFilePersisterExternalMarketData1
