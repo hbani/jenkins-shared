@@ -1,5 +1,5 @@
-def call(client_name,email_notify) {
-def conf = get_conf_client(client_name)
+def call(client_name,email_notify,classname) {
+def conf = get_conf_client(client_name,classname)
 if (email_notify) {
     echo "Sending email to ${email_notify} - status is ${currentBuild.result}"
 

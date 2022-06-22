@@ -1,5 +1,5 @@
-def call(client_name) {
-    def conf = get_conf_client(client_name)
+def call(client_name,classname) {
+    def conf = get_conf_client(client_nameclassname)
     def additionalSysprops = ""
     def additionalArgs = ""
     def pos = ""
@@ -24,5 +24,5 @@ def call(client_name) {
     if (conf.hybridInstrumentToProfileMappings != null && conf.hybridInstrumentToProfileMappings != ""){
         hybridInstrumentToProfileMappings="--forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:"+conf.hybridInstrumentToProfileMappings+" \\"
     }
-    save_conf_client(client_name,[additionalSysprops: additionalSysprops, additionalArgs: additionalArgs,pos: pos, fastMarkets: fastMarkets, hybridInstrumentToProfileMappings: hybridInstrumentToProfileMappings])
+    save_conf_client(client_name,classname,[additionalSysprops: additionalSysprops, additionalArgs: additionalArgs,pos: pos, fastMarkets: fastMarkets, hybridInstrumentToProfileMappings: hybridInstrumentToProfileMappings])
 }

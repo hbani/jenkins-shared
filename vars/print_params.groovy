@@ -1,5 +1,5 @@
-def call(client_name) {
-  def conf = get_conf_client(client_name)
+def call(client_name,classname) {
+  def conf = get_conf_client(client_name,classname)
   to_from = to_from()
   echo """
   Customer: ${client_name}

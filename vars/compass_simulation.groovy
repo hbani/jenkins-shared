@@ -1,5 +1,5 @@
 def call(client_name) {
-def conf = get_conf_client(client_name)
+def conf = get_conf_client(client_name,"SpreadComparision")
 to_from = to_from()
 sh  """
 cd /app/fx/apps/mahifx/
