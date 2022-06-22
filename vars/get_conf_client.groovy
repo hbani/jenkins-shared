@@ -3,7 +3,7 @@ def call(client_name, classname) {
     def clientYaml = readYaml(file: "${WORKSPACE}/${client}.yaml")
     return clientYaml
   }
-  def yamlString = libraryResource('config/${classname}.yaml')
+  def yamlString = libraryResource("config/${classname}.yaml")
   Object conf = readYaml(text: yamlString)
   return conf.defaults + conf."$client_name"
 }
