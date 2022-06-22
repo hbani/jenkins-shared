@@ -2,7 +2,7 @@ com.x.integration.pricing.SpreadDistributionProcess \
 --client=$params.client_name \
 --env=local-live,singlebroker,inmemorydb,backtest \
 --jobId=$env.BUILD_TAG \
---jobDescription="${description}" \
+--jobDescription="${params.description}" \
 --outPath="${outputPath}" \
 <% out << (benchmarkMarkets?.trim() ? " " :benchmarkMarkets) %>
 --useAggregateSpread=${useAggregateSpread} \
