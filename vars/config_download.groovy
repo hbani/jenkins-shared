@@ -2,7 +2,7 @@ def call(client_name,classname) {
   def awsCredentials = get_aws_cred()
   dir ("config") {
       def conf = get_conf_client(client_name,classname)
-      tempconfig = []
+      tempconfig = [:]
       configRoot = pwd()
       tempconfig.put("configRoot",configRoot)
 
