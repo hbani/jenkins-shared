@@ -1,6 +1,6 @@
 def call(client_name, classname) {
   if ( fileExists("${WORKSPACE}/${client_name}.yaml") ) {
-    def clientYaml = readYaml(file: "${WORKSPACE}/${client}.yaml")
+    def clientYaml = readYaml(file: "${WORKSPACE}/${client_name}.yaml")
     return clientYaml
   }
   def yamlString = libraryResource("config/${classname}.yaml")
