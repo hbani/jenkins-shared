@@ -1,5 +1,5 @@
 com.x.integration.pricing.SpreadDistributionProcess \
---client="${params.client_name}" \
+--client=$params.client_name \
 --env=local-live,singlebroker,inmemorydb,backtest \
 --jobId=$env.BUILD_TAG \
 --jobDescription="${description}" \
