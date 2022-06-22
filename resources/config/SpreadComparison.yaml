@@ -3,6 +3,7 @@ defaults:
   tickStoreUrl: "bootstrap.ldn.simulation.properties"
   percentile: 0.5
   useAggregateSpread: false
+  mahiLogLevel: INFO
 
 liquidity:
   useAggregateSpread: true
