@@ -6,7 +6,9 @@ def call(client_name,classname) {
 
       downloadFileFromS3(awsCredentials, "s3://compass-simulations-config/"+conf.bootstrapProperties, configRoot)
 
+      if (conf.configurationS3UrlPrefix != null && conf.configurationS3UrlPrefix != "") {
       hedgingConfiguration = downloadFileFromS3(awsCredentials,  "s3://compass-simulations-config/"+conf.configurationS3UrlPrefix, configRoot)
+      } 
   }
   save_conf_client(client_name,classname,[configRoot: configRoot, hedgingConfiguration: hedgingConfiguration])
 }
