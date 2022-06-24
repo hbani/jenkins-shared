@@ -9,7 +9,7 @@ com.x.integration.analytics.CompassSimulationProcess \
 --forceConfig=analytics.enrichedTradeOutput.persist=boolean:false \
 --forceConfig=analytics.enrichedTradeOutputSummary.persist=boolean:false \
 --forceConfig=analytics.hedgingDecisions.persist=boolean:false \
-<% out << hybridInstrumentToProfileMappings ? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${hybridInstrumentToProfileMappings}": " " %>
+<% out << (config.hasVariable('hybridInstrumentToProfileMappings')? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${hybridInstrumentToProfileMappings}": " " ) %>
 --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
 --jmsStoreUrl="${jmsStoreUrl}" \
 --tickStoreUrl="${tickStoreUrl}" \
