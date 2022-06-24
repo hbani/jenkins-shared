@@ -1,4 +1,4 @@
-<% out << (delegate.hasVariable('additionalSysprops')? additionalSysprops.collect { shellString.call(it) }.join(' '): " " ) %>
+<% out << (delegate.hasVariable('additionalSysprops')? additionalSysprops.collect { shellString(it) }.join(' '): " " ) %>
 com.x.integration.analytics.CompassSimulationProcess \
 --name=backtest \
 --env=local-live,backtest \
@@ -19,5 +19,5 @@ com.x.integration.analytics.CompassSimulationProcess \
 --jobDescription="${params.description}" \
 --from="${to_from.from}" \
 --to="${to_from.to}" \
-<% out << (delegate.hasVariable('additionalArgs')? additionalArgs.collect { shellString.call(it) }.join(' '): " nothing here" ) %>
+<% out << (delegate.hasVariable('additionalArgs')? additionalArgs.collect { shellString(it) }.join(' '): " nothing here" ) %>
 <% out << (delegate.hasVariable('positionsS3Url')? "--positionsInput=${positionsS3Url}": " " ) %>
