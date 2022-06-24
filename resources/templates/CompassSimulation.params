@@ -9,7 +9,7 @@ com.x.integration.analytics.CompassSimulationProcess \
 --forceConfig=analytics.enrichedTradeOutput.persist=boolean:false \
 --forceConfig=analytics.enrichedTradeOutputSummary.persist=boolean:false \
 --forceConfig=analytics.hedgingDecisions.persist=boolean:false \
-<% out << (binding.hasVariable('hybridInstrumentToProfileMappings')? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${hybridInstrumentToProfileMappings}": "hussain0test " ) %>
+<% out << (binding.hasVariable('hybridInstrumentToProfileMappings')? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${hybridInstrumentToProfileMappings}": " " ) %>
 --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
 --jmsStoreUrl="${jmsStoreUrl}" \
 --tickStoreUrl="${tickStoreUrl}" \
@@ -19,5 +19,5 @@ com.x.integration.analytics.CompassSimulationProcess \
 --jobDescription="${params.description}" \
 --from="${to_from.from}" \
 --to="${to_from.to}" \
-<% out << (binding.hasVariable('additionalArgs')? additionalArgs.collect { shellString(it) }.join(' '): " " ) %>
+<% out << (binding.hasVariable('additionalArgs')? additionalArgs.collect { shellString(it) }.join(' '): " nothing here" ) %>
 <% out << (binding.hasVariable('positionsS3Url')? "--positionsInput=${positionsS3Url}": " " ) %>
