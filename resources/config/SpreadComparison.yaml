@@ -1,5 +1,5 @@
 defaults:
-  useAggregateSpread: 250k
+  useAggregateSpread: false
   tickStoreUrl: "bootstrap.ldn.simulation.properties"
   percentile: 0.5
   useAggregateSpread: false
@@ -7,7 +7,6 @@ defaults:
 
 liquidity:
   useAggregateSpread: true
-  tickStoreUrl: "bootstrap.ldn.simulation.properties"
   percentile: 0.5
   pricingMarket: CLIENT_PRICE_NYC
   benchmarkMarkets: EXISTING_PEPPER_POOL

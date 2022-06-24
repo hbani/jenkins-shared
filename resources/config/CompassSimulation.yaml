@@ -1,0 +1,26 @@
+defaults:
+  tickStoreUrl: "bootstrap.ldn.simulation.properties"
+  dynamicOrderSpeedScaling: 1.0
+  mahiLogLevel: INFO
+
+pepperstone:
+  dynamicOrderSpeedScaling: 1.0
+  pricingMarket: CLIENT_PRICE_NYC
+  benchmarkMarkets: EXISTING_PEPPER_POOL
+  bootstrapProperties: bootstrap.simulation.properties
+  tickStoreUrl: s3://pepperstone-production-tickstore/pepperstone/pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com/starfishFilePersisterExternalMarketData1
+  maxVarLevel: 500k
+  configurationS3Url: s3://mfx-compass-customer-config/PEPPERSTONE/PEPPERSTONE_config-update.json.gz
+  jmsStoreUrl: s3://pepperstone-production-tickstore/pepperstone/pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com/jmsFilePersisterSystemGuaranteed1
+  additionalSysprops:
+    - -Dbacktest.alternateProcessNames=riskPathPTR
+    - -Dlocation=NY4.NYC
+    - -Dbacktest.classifierTenant=PTR
+  additionalArgs:
+    - --includeArb
+    - --disableSeparateHedging
+    - --onlyInstruments=AUDUSD,EURUSD,EURCHF,GBPUSD,NZDUSD,USDCAD,USDJPY,XAUUSD
+    - --forceConfig=risk.clientParty=string:PTR_CLIENTS
+    - --forceConfig=risk.riskParty=string:PTR_CLIENTS_NET
+    - --forceConfig=risk.hedgingParty=string:PTR_CLIENTS_HEDGING
+    - --jmsStoreRegionOverride=NYC
