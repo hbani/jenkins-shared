@@ -9,7 +9,7 @@ com.x.integration.analytics.CompassSimulationProcess \
 --forceConfig=analytics.enrichedTradeOutput.persist=boolean:false \
 --forceConfig=analytics.enrichedTradeOutputSummary.persist=boolean:false \
 --forceConfig=analytics.hedgingDecisions.persist=boolean:false \
-<% out << (list.contains('hybridInstrumentToProfileMappings')? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${hybridInstrumentToProfileMappings}": " hussain-test" ) %>
+<% out << (binding.hasVariable('hybridInstrumentToProfileMappings')? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${hybridInstrumentToProfileMappings}": "hussain0test " ) %>
 --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
 --jmsStoreUrl="${jmsStoreUrl}" \
 --tickStoreUrl="${tickStoreUrl}" \
