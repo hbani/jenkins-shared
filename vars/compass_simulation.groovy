@@ -1,7 +1,7 @@
 def call(client_name) {
 
   def conf = get_conf_client(client_name,"CompassSimulation")
-  config = [
+  binding = [
   "to_from": to_from(),
   "shellString": shellString,
   "env": env,
