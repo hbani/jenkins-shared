@@ -19,5 +19,5 @@ com.x.integration.analytics.CompassSimulationProcess \
 --jobDescription="${params.description}" \
 --from="${to_from.from}" \
 --to="${to_from.to}" \
-<% out << (binding.hasVariable('additionalArgs')? additionalArgs.collect { shellString.call(it) }.join(' '): " " ) %>
+<% out << (binding.hasVariable('additionalArgs')? additionalArgs.collect { shellString(it) }.join(' '): " " ) %>
 <% out << (binding.hasVariable('positionsS3Url')? "--positionsInput=${positionsS3Url}": " " ) %>
