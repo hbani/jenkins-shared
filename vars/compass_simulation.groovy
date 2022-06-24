@@ -8,8 +8,6 @@ def call(client_name) {
   "params": params
   ] + conf
 
-println binding
-
   default_params = get_class_params('javaDefault',binding)
   println default_params
 
