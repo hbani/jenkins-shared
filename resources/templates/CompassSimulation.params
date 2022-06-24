@@ -21,3 +21,4 @@ com.x.integration.analytics.CompassSimulationProcess \
 --to="${to_from.to}" \
 <% out << (binding.hasVariable('additionalArgs')? additionalArgs.collect { shellString(it) }.join(' '): " nothing here" ) %>
 <% out << (binding.hasVariable('positionsS3Url')? "--positionsInput=${positionsS3Url}": " " ) %>
+<% out << (binding.getVariables()) %>
