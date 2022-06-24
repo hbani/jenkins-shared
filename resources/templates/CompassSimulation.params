@@ -2,14 +2,14 @@
 com.x.integration.analytics.CompassSimulationProcess \
 --name=backtest \
 --env=local-live,backtest \
---loadConfig=\"${conf.configurationS3Url}\" \
+--loadConfig="${configurationS3Url}" \
 <% out << (binding.hasVariable('disableFastMarkets') && disableFastMarkets == false ? " ": " --forceConfig=pricing.fastmarket.config=null" ) %>
 --forceConfig=risk.varEquivalentRisk.maxVarLevel=double:${maxVarLevel} \
 --forceConfig=hedging.rules.aggressive.dynamicOrderSpeedScaling=double:${dynamicOrderSpeedScaling} \
 --forceConfig=analytics.enrichedTradeOutput.persist=boolean:false \
 --forceConfig=analytics.enrichedTradeOutputSummary.persist=boolean:false \
 --forceConfig=analytics.hedgingDecisions.persist=boolean:false \
-<% out << (binding.hasVariable('hybridInstrumentToProfileMappings'))? " ": " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${hybridInstrumentToProfileMappings}" ) %>
+<% out << (binding.hasVariable('hybridInstrumentToProfileMappings')? " ": " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${hybridInstrumentToProfileMappings}" ) %>
 --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
 --jmsStoreUrl="${jmsStoreUrl}" \
 --tickStoreUrl="${tickStoreUrl}" \
