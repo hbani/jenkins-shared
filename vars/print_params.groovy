@@ -1,18 +1,12 @@
+
+import static groovy.json.JsonOutput.*
+
 def call(client_name,classname) {
   def conf = get_conf_client(client_name,classname)
+  if classname == "CompassSimulation" {
   to_from = to_from()
-  echo """
-  Customer: ${client_name}
-  Goal: ${params.goal}
-  Changes: ${params.changes}
-  MaxVarLevel: ${conf.maxVarLevel}
-  From: ${to_from.from}
-  To: ${to_from.to}
-  Config: ${conf.configurationS3Url} -> ${conf.hedgingConfiguration}
-  HybridInstrumentToProfileMappings: ${conf.hybridInstrumentToProfileMappings}
-  Additionalargs: ${conf.additionalArgs}
-  DTASpeedScaling: ${conf.dynamicOrderSpeedScaling}
-  Sysprops: ${conf.additionalSysprops}
-  Output: ${conf.outputPath}
-  """
+  conf.put(from,to_from.from)
+  conf.put(to,to_from.to)
+  }
+  print prettyPrint(toJson(params))
 }
