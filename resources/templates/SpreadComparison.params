@@ -9,4 +9,4 @@ com.x.integration.pricing.SpreadDistributionProcess \
 --tickStoreUrl=${tickStoreUrl} \
 --quantile=${percentile} \
 --market=${pricingMarket} \
-<% out << (binding.hasVariable('additionalArgs')?additionalArgs: " " ) %>
+<% out << (delegate.hasVariable('additionalArgs')? additionalArgs.collect { it }.join(' '): " " ) %>
