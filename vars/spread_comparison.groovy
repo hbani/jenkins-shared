@@ -7,4 +7,17 @@ def call(client_name) {
 
   SpreadComparison = get_class_params('SpreadComparison',conf+['env':env,'params':params])
 
+  sh """
+  cd /app/fx/apps/mahifx/
+
+  df -h
+  free -m
+  du -ms /tmp/*
+
+  echo "\
+    -cp current/lib:current/lib/* \
+    ${default_params} \
+    ${SpreadComparison}"
+  """
+
 }

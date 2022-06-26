@@ -8,5 +8,5 @@ def call(client_name,classname) {
   conf.put("from",to_from.from)
   conf.put("to",to_from.to)
   }
-  print prettyPrint(toJson(conf))
+  print prettyPrint(toJson(conf+params))
 }
