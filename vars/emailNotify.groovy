@@ -1,7 +1,8 @@
 def call(client_name,classname) {
 def conf = get_conf_client(client_name,classname)
-if (params.email_notify) {
-    echo "Sending email to ${params.email_notify} - status is ${currentBuild.result}"
+def email_notify = params.email_notify?.trim()
+if (email_notify) {
+    echo "Sending email to ${email_notify} - status is ${currentBuild.result}"
 
     // Interpolated header
     def emailBody = """
@@ -44,6 +45,6 @@ ${BUILD_LOG, maxLines=50}
 </pre>
 '''
 
-    emailext (body: emailBody, subject: "${env.JOB_NAME} - ${client_name} - Build #${currentBuild.number} - ${currentBuild.result}", to: params.email_notify, mimeType: "text/html")
+    emailext (body: emailBody, subject: "${env.JOB_NAME} - ${client_name} - Build #${currentBuild.number} - ${currentBuild.result}", to: email_notify, mimeType: "text/html")
     }
 }
