@@ -16,7 +16,7 @@ pepperstone:
     - -Dbacktest.alternateProcessNames=riskPathPTR
     - -Dlocation=NY4.NYC
     - -Dbacktest.classifierTenant=PTR
-  additionalArgs:
+  topLevelArgs:
     - --includeArb
     - --disableSeparateHedging
     - --onlyInstruments=AUDUSD,EURUSD,EURCHF,GBPUSD,NZDUSD,USDCAD,USDJPY,XAUUSD
