@@ -8,6 +8,7 @@ def call(client_name) {
   "params": params
   ] + conf
 
+  shellString("hussain").getClass() 
   default_params = get_class_params('javaDefault',binding)
   println default_params
 
