@@ -19,5 +19,5 @@ com.x.integration.analytics.CompassSimulationProcess \
 --jobDescription="${params.description}" \
 --from="${params.from}" \
 --to="${params.to}" \
-<% out << (delegate.hasVariable('topLevelArgs')? topLevelArgs.collect { shellString.call("${it}") }.join(' '): " " ) %>
+<% out << (delegate.hasVariable('topLevelArgs')? topLevelArgs.collect { it.toString() -> shellString.call(${it) }.join(' '): " " ) %>
 <% out << (delegate.hasVariable('positionsS3Url')? "--positionsInput=${positionsS3Url}": " " ) %>
