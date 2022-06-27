@@ -1,15 +1,14 @@
-<% out << (delegate.hasVariable('additionalSysprops')? additionalSysprops.collect { it }.join(' '): " " ) %>
-com.x.integration.analytics.CompassSimulationProcess \
+<% out << (params.additionalSysprops != null ? params.additionalSysprops.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %>
 --name=backtest \
 --env=local-live,backtest \
 --loadConfig="${configurationS3Url}" \
-<% out << (delegate.hasVariable('disableFastMarkets') && disableFastMarkets == false ? " ": " --forceConfig=pricing.fastmarket.config=null" ) %>
+<% out << (params.disableFastMarkets != null && params.disableFastMarkets == false ? " ": " --forceConfig=pricing.fastmarket.config=null" ) %>
 --forceConfig=risk.varEquivalentRisk.maxVarLevel=double:${maxVarLevel} \
 --forceConfig=hedging.rules.aggressive.dynamicOrderSpeedScaling=double:${dynamicOrderSpeedScaling} \
 --forceConfig=analytics.enrichedTradeOutput.persist=boolean:false \
 --forceConfig=analytics.enrichedTradeOutputSummary.persist=boolean:false \
 --forceConfig=analytics.hedgingDecisions.persist=boolean:false \
-<% out << (delegate.hasVariable('hybridInstrumentToProfileMappings')? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${hybridInstrumentToProfileMappings}": " " ) %>
+<% out << (params.hybridInstrumentToProfileMappings != null ? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${(params.hybridInstrumentToProfileMappings}": " " ) %>
 --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
 --jmsStoreUrl="${jmsStoreUrl}" \
 --tickStoreUrl="${tickStoreUrl}" \
@@ -19,6 +18,6 @@ com.x.integration.analytics.CompassSimulationProcess \
 --jobDescription="${params.description}" \
 --from="${params.from}" \
 --to="${params.to}" \
-<% out << (params.containsKey('additionalArgs')? params.additionalArgs.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %>
+<% out << (params.additionalArgs != null ? params.additionalArgs.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %>
 <% out << (delegate.hasVariable('topLevelArgs')? topLevelArgs.collect { it }.join(' '): " " ) %>
 <% out << (delegate.hasVariable('positionsS3Url')? "--positionsInput=${positionsS3Url}": " " ) %>

@@ -4,9 +4,9 @@ com.x.integration.pricing.SpreadDistributionProcess \
 --jobId=$env.BUILD_TAG \
 --jobDescription="${params.description}" \
 --outPath="${outputPath}" \
-<% out << (binding.hasVariable('benchmarkMarkets')?benchmarkMarkets: " " ) %>
---useAggregateSpread=${useAggregateSpread} \
+<% out << (params.benchmarkMarkets != null ?benchmarkMarkets: " " ) %>
+--useAggregateSpread=${params.useAggregateSpread} \
 --tickStoreUrl=${tickStoreUrl} \
---quantile=${percentile} \
---market=${pricingMarket} \
-<% out << (delegate.hasVariable('additionalArgs')? additionalArgs.collect { it }.join(' '): " " ) %>
+--quantile=${params.percentile} \
+--market=${params.pricingMarket} \
+<% out << (params.additionalArgs != null ? params.additionalArgs.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %>
