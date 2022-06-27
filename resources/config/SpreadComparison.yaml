@@ -1,15 +1,8 @@
 defaults:
-  useAggregateSpread: false
   tickStoreUrl: "bootstrap.ldn.simulation.properties"
-  percentile: 0.5
-  useAggregateSpread: false
   mahiLogLevel: INFO
 
 liquidity:
-  useAggregateSpread: true
-  percentile: 0.5
-  pricingMarket: CLIENT_PRICE_NYC
-  benchmarkMarkets: EXISTING_PEPPER_POOL
   bootstrapProperties: bootstrap.simulation.properties
   tickStoreUrl: s3://pepperstone-production-tickstore/pepperstone/pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com/starfishFilePersisterExternalMarketData1
   maxVarLevel: 230k
