@@ -2,7 +2,7 @@ defaults:
   tickStoreUrl: "bootstrap.ldn.simulation.properties"
   mahiLogLevel: INFO
 
-liquidity:
+peppertone:
   bootstrapProperties: bootstrap.simulation.properties
   tickStoreS3Bucket: pepperstone-production-tickstore
   tradinghHost: pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com
