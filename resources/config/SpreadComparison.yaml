@@ -4,6 +4,7 @@ defaults:
 
 pepperstone:
   bootstrapProperties: bootstrap.simulation.properties
+  tradinghHost: pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com
   tickStoreS3Bucket: pepperstone-production-tickstore
   tradinghHost: pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com
   maxVarLevel: 230k
