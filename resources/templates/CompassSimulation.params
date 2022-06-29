@@ -1,7 +1,7 @@
 <% out << (params.additionalSysprops != null ? params.additionalSysprops.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %>
 --name=backtest \
 --env=local-live,backtest \
---loadConfig="${configurationS3Url}\${params.client_name.toUpperCase()}\${params.client_name.toUpperCase()}_config-update.json.gz" \
+--loadConfig="${configurationS3Url}/${params.client_name.toUpperCase()}/${params.client_name.toUpperCase()}_config-update.json.gz" \
 <% out << (params.disableFastMarkets != null && params.disableFastMarkets == false ? " ": " --forceConfig=pricing.fastmarket.config=null" ) %>
 --forceConfig=risk.varEquivalentRisk.maxVarLevel=double:${maxVarLevel} \
 --forceConfig=hedging.rules.aggressive.dynamicOrderSpeedScaling=double:${dynamicOrderSpeedScaling} \

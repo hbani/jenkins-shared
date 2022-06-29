@@ -1,6 +1,6 @@
 com.x.integration.pricing.SpreadDistributionProcess \
 --client=$params.client_name \
---loadConfig="${configurationS3Url}\${params.client_name.toUpperCase()}\${params.client_name.toUpperCase()}_config-update.json.gz" \
+--loadConfig="${configurationS3Url}/${params.client_name.toUpperCase()}/${params.client_name.toUpperCase()}_config-update.json.gz" \
 --env=local-live,singlebroker,inmemorydb,backtest \
 --jobId=$env.BUILD_TAG \
 --jobDescription="${params.description}" \
