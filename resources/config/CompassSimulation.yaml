@@ -6,7 +6,7 @@ defaults:
 
 pepperstone:
   dynamicOrderSpeedScaling: 1.0
-  tradinghHost: pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com
+  tradingHost: pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com
   bootstrapProperties: bootstrap.simulation.properties
   tickStoreS3Bucket: pepperstone-production-tickstore
   maxVarLevel: 500k
