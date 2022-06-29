@@ -15,5 +15,4 @@
 -Dcompass.backtest=true \
 -Dfile.encoding=UTF-8 \
 --name=backtest \
---loadConfig="${configurationS3Url}" \
 --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \

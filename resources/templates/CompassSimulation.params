@@ -1,7 +1,7 @@
 <% out << (params.additionalSysprops != null ? params.additionalSysprops.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %>
 --name=backtest \
 --env=local-live,backtest \
---loadConfig="${configurationS3Url}" \
+--loadConfig="${configurationS3Url}\${client_name.toUpperCase()}\${client_name.toUpperCase()}_config-update.json.gz" \
 <% out << (params.disableFastMarkets != null && params.disableFastMarkets == false ? " ": " --forceConfig=pricing.fastmarket.config=null" ) %>
 --forceConfig=risk.varEquivalentRisk.maxVarLevel=double:${maxVarLevel} \
 --forceConfig=hedging.rules.aggressive.dynamicOrderSpeedScaling=double:${dynamicOrderSpeedScaling} \
@@ -10,8 +10,8 @@
 --forceConfig=analytics.hedgingDecisions.persist=boolean:false \
 <% out << (params.hybridInstrumentToProfileMappings != null ? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${params.hybridInstrumentToProfileMappings}": " " ) %>
 --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
---jmsStoreUrl="${jmsStoreUrl}" \
---tickStoreUrl="${tickStoreUrl}" \
+--jmsStoreUrl="s3://${tickStoreS3Bucket}/${client_name}/${tradingHost}/jmsFilePersisterSystemGuaranteed1" \
+--tickStoreUrl="s3://${tickStoreS3Bucket}/${client_name}/${tradingHost}/starfishFilePersisterExternalMarketData1" \
 --outPath="${outputPath}" \
 --client=$params.client_name \
 --jobId=$env.BUILD_TAG \

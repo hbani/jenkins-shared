@@ -4,6 +4,7 @@ defaults:
 
 liquidity:
   bootstrapProperties: bootstrap.simulation.properties
-  tickStoreUrl: s3://pepperstone-production-tickstore/pepperstone/pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com/starfishFilePersisterExternalMarketData1
+  tickStoreS3Bucket: pepperstone-production-tickstore
+  tradinghHost: pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com
   maxVarLevel: 230k
-  configurationS3Url: s3://mfx-compass-customer-config/PEPPERSTONE/PEPPERSTONE_config-update.json.gz
+  configurationS3Url: s3://mfx-compass-customer-config
