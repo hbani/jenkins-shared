@@ -1,17 +1,22 @@
 def call(client_name) {
 
   def conf = get_conf_client(client_name,"CompassSimulation")
-  Map binding = [
-  "to_from": to_from(),
-  "shellString": shellString,
-  "env": env,
-  "params": params
-  ] + conf
 
-  shellString("hussain").getClass() 
-  default_params = get_class_params('javaDefault',binding)
-  println default_params
+  default_params = get_class_params('javaDefault',conf+['env':env,'params':params])
 
-  class_params = get_class_params('CompassSimulation',binding)
-  println class_params
+  CompassSimulation = get_class_params('CompassSimulation',conf+['env':env,'params':params])
+
+  sh """
+  cd /app/fx/apps/mahifx/
+
+  df -h
+  free -m
+  du -ms /tmp/*
+
+  java \
+    -cp current/lib:current/lib/* \
+    ${default_params} \
+    ${CompassSimulation}
+    
+  """
 }

@@ -10,7 +10,7 @@
 -Dlic.file=file:shared/conf/license.lic \
 -DFileStorageProcessBuilderHelper.DataStore=/media/ephemeral0/tickstore/ \
 -Droot.log.level=ERROR \
--Dmahi.root.log.level=<% out << (params.mahiLogLevel != null ? params.mahiLogLevel: mahiLogLevel ) %>
+-Dmahi.root.log.level=<% out << (params.mahiLogLevel != null ? params.mahiLogLevel: mahiLogLevel ) %> \
 -Dbackstatsprovider.suppress.dump=true \
 -Dcompass.backtest=true \
 -Dfile.encoding=UTF-8 \

@@ -5,9 +5,10 @@ com.x.integration.pricing.SpreadDistributionProcess \
 --jobId=$env.BUILD_TAG \
 --jobDescription="${params.description}" \
 --outPath="${outputPath}" \
-<% out << (params.benchmarkMarkets != null ?benchmarkMarkets: " " ) %>
+<% out << (params.benchmarkMarkets != null ? "--benchmarkMarkets=${params.benchmarkMarkets}": " " ) %> \
 --useAggregateSpread=${params.useAggregateSpread} \
 --tickStoreUrl="s3://${tickStoreS3Bucket}/${params.client_name}/${tradingHost}/starfishFilePersisterExternalMarketData1" \
 --quantile=${params.percentile} \
 --market=${params.pricingMarket} \
+<% out << (delegate.hasVariable('topLevelArgs')? topLevelArgs.collect { it }.join(' '): " " ) %> \
 <% out << (params.additionalArgs != null ? params.additionalArgs.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %>
