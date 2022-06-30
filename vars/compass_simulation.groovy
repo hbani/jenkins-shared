@@ -9,6 +9,9 @@ def call(client_name) {
   sh """
   cd /app/fx/apps/mahifx/
 
+  sed -i 's/arbHedger1/backtest/g' \"${conf.hedgingConfiguration}\"
+  sed -i 's/hybridHedger1/backtest/g' \"${conf.hedgingConfiguration}\"
+
   df -h
   free -m
   du -ms /tmp/*
@@ -17,6 +20,6 @@ def call(client_name) {
     -cp current/lib:current/lib/* \
     ${default_params} \
     ${CompassSimulation}
-    
+
   """
 }

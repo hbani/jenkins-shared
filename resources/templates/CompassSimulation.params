@@ -1,4 +1,5 @@
-<% out << (params.additionalSysprops != null ? params.additionalSysprops.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %>
+<% out << (params.additionalSysprops != null ? params.additionalSysprops.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %> \
+com.x.integration.analytics.CompassSimulationProcess \
 --name=backtest \
 --env=local-live,backtest \
 --loadConfig="${configurationS3Url}/${params.client_name.toUpperCase()}/${params.client_name.toUpperCase()}_config-update.json.gz" \
@@ -20,4 +21,4 @@
 --to="${params.to}" \
 <% out << (params.additionalArgs != null ? params.additionalArgs.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %>
 <% out << (delegate.hasVariable('topLevelArgs')? topLevelArgs.collect { it }.join(' '): " " ) %>
-<% out << (delegate.hasVariable('positionsS3Url')? "--positionsInput=${positionsS3Url}": " " ) %>
+<% out << (params.positionsS3Url != null? "--positionsInput=${params.positionsS3Url}": " " ) %>
