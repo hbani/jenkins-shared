@@ -1,4 +1,4 @@
-@Library('Analytics') _
+@Library('jenkins-shared-test') _
 
 node ('backtest_slave') {
 properties([
