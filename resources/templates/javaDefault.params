@@ -14,5 +14,4 @@
 -Dbackstatsprovider.suppress.dump=true \
 -Dcompass.backtest=true \
 -Dfile.encoding=UTF-8 \
---name=backtest \
 --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
