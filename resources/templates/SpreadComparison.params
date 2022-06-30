@@ -3,7 +3,7 @@ com.x.integration.pricing.SpreadDistributionProcess \
 --loadConfig="${configurationS3Url}/${params.client_name.toUpperCase()}/${params.client_name.toUpperCase()}_config-update.json.gz" \
 --env=local-live,singlebroker,inmemorydb,backtest \
 --jobId=$env.BUILD_TAG \
---jobDescription="${params.description.replaceAll("\\s","")}" \
+--jobDescription=\"${params.description.trim()}\" \
 --outPath="${outputPath}" \
 <% out << (params.benchmarkMarkets != null ? "--benchmarkMarkets=${params.benchmarkMarkets}": " " ) %> \
 --useAggregateSpread=${params.useAggregateSpread} \
