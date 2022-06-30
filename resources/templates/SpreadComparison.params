@@ -1,4 +1,6 @@
 com.x.integration.pricing.SpreadDistributionProcess \
+--name=backtest \
+--graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory
 --client=$params.client_name \
 --loadConfig="${configurationS3Url}/${params.client_name.toUpperCase()}/${params.client_name.toUpperCase()}_config-update.json.gz" \
 --env=local-live,singlebroker,inmemorydb,backtest \
