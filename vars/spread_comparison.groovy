@@ -14,7 +14,7 @@ def call(client_name) {
   free -m
   du -ms /tmp/*
 
-  echo \
+  java \
     -cp current/lib:current/lib/* \
     ${default_params} \
     ${SpreadComparison}
