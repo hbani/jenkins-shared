@@ -14,10 +14,10 @@ def call(client_name) {
   free -m
   du -ms /tmp/*
 
-  java \
-    -cp current/lib:current/lib/* \
+  echo \
+    "-cp current/lib:current/lib/* \
     ${default_params} \
     ${SpreadComparison}
-
+"
   """
 }
