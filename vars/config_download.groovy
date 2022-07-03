@@ -8,7 +8,7 @@ def call(client_name,classname) {
 
       downloadFileFromS3(awsCredentials, "s3://compass-simulations-config/"+conf.bootstrapProperties, configRoot)
 
-      hedgingConfiguration = downloadFileFromS3(awsCredentials,  "${configurationS3Url}/${params.client_name.toUpperCase()}/${params.client_name.toUpperCase()}_config-update.json.gz", configRoot)
+      hedgingConfiguration = downloadFileFromS3(awsCredentials,  "${conf.configurationS3Url}/${params.client_name.toUpperCase()}/${params.client_name.toUpperCase()}_config-update.json.gz", configRoot)
       tempconfig.put("hedgingConfiguration",hedgingConfiguration)
   }
   save_conf_client(client_name,classname,tempconfig)
