@@ -1,11 +1,4 @@
-defaults:
-  tickStoreUrl: "bootstrap.ldn.simulation.properties"
-  configurationS3Url: s3://mfx-compass-customer-config
-
 pepperstone:
-  tradingHost: pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com
-  bootstrapProperties: bootstrap.simulation.properties
-  tickStoreS3Bucket: pepperstone-production-tickstore
   topLevelArgs:
     - --includeArb
     - --disableSeparateHedging
