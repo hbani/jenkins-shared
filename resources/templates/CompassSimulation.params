@@ -9,7 +9,7 @@ com.x.integration.analytics.CompassSimulationProcess \
 --forceConfig=analytics.enrichedTradeOutput.persist=boolean:false \
 --forceConfig=analytics.enrichedTradeOutputSummary.persist=boolean:false \
 --forceConfig=analytics.hedgingDecisions.persist=boolean:false \
-<% out << (params.hybridInstrumentToProfileMappings != null && params.hybridInstrumentToProfileMappings != "" ? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${params.hybridInstrumentToProfileMappings}": " " ) %>
+<% out << (params.hybridInstrumentToProfileMappings != null && params.hybridInstrumentToProfileMappings != "" ? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${params.hybridInstrumentToProfileMappings}": " " ) %> \
 --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
 --jmsStoreUrl="s3://${tickStoreS3Bucket}/${params.client_name}/${tradingHost}/jmsFilePersisterSystemGuaranteed1" \
 --tickStoreUrl="s3://${tickStoreS3Bucket}/${params.client_name}/${tradingHost}/starfishFilePersisterExternalMarketData1" \
