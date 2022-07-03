@@ -16,7 +16,7 @@ com.x.integration.analytics.CompassSimulationProcess \
 --outPath="${outputPath}" \
 --client=$params.client_name \
 --jobId=$env.BUILD_TAG \
---jobDescription=\"${params.description.replaceAll("\\s","")}\" \
+--jobDescription="'${params.description.replaceAll("\\s","")}'" \
 --from="${params.from}" \
 --to="${params.to}" \
 <% out << (params.additionalArgs != null && params.additionalArgs != "" ? params.additionalArgs.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %> \
