@@ -10,7 +10,7 @@ def call(client_name, classname) {
       if (confClass.containsKey(client_name)) {
         conf << confClass."$client_name"
       }
-    } catch(ArrayIndexOutOfBoundsException ex) {
+    } catch(ex) {
          println(ex.toString());
       }
   def yamlStringclients = libraryResource("config/clients.yaml")
