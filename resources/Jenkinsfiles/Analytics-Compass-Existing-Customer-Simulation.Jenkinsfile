@@ -8,7 +8,7 @@ properties([
           string(name: 'description', description: 'Optional description of run'),
           string(name: 'changes', description: 'What notable changes were made in this run relative to previous runs?'),
           string(name: 'email_notify', description: 'Comma-separated list of email address that should receive notifications on completion (success or failure)'),
-          string(name: 'maxVarLevel', description: '"Maximum VaR" level, by which hedging risk levels can be defined. If the selected config uses StatArber.VaRRule (for arb) and RelativeQuantity.MaxVarRelative (for hybrid), this single parameter controls all risk levels.')',
+          string(name: 'maxVarLevel', description: '"Maximum VaR" level, by which hedging risk levels can be defined. If the selected config uses StatArber.VaRRule (for arb) and RelativeQuantity.MaxVarRelative (for hybrid), this single parameter controls all risk levels.'),
           string(name: 'hybridInstrumentToProfileMappings'),
           choice(choices: ['INFO', 'DEBUG', 'TRACE'], description: 'Log level', name: 'mahiLogLevel'),
           string(name: 'from', description: 'YYYYMMDD-HHMMSS'),
