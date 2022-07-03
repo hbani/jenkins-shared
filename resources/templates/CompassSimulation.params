@@ -3,7 +3,7 @@ com.x.integration.analytics.CompassSimulationProcess \
 --name=backtest \
 --env=local-live,backtest \
 --loadConfig="${configurationS3Url}/${params.client_name.toUpperCase()}/${params.client_name.toUpperCase()}_config-update.json.gz" \
-<% out << (params.disableFastMarkets != null && params.disableFastMarkets == false ? " ": " --forceConfig=pricing.fastmarket.config=null" ) %>
+<% out << (params.disableFastMarkets != null && params.disableFastMarkets == false ? " ": " --forceConfig=pricing.fastmarket.config=null" ) %> \s
 --forceConfig=risk.varEquivalentRisk.maxVarLevel=double:<% out << (params.maxVarLevel != null && params.maxVarLevel != "" ? params.maxVarLevel: maxVarLevel ) %> \
 --forceConfig=hedging.rules.aggressive.dynamicOrderSpeedScaling=double:${params.dynamicOrderSpeedScaling} \
 --forceConfig=analytics.enrichedTradeOutput.persist=boolean:false \
