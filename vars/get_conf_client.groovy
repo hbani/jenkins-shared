@@ -7,13 +7,13 @@ def call(client_name, classname) {
   if ( libraryResource("config/${classname}.yaml" ) {
     def yamlStringclass = libraryResource("config/${classname}.yaml")
     Object confClass = readYaml(text: yamlStringclass)
-    if (conf.containsKey(client_name)) {
-      conf << conf."client_name"
+    if (confClass.containsKey(client_name)) {
+      conf << confClass."client_name"
     }
   }
 
   def yamlStringclients = libraryResource("config/clients.yaml")
   Object confClients = readYaml(text: yamlStringclients)
-  conf << confClass.defaults + conf."$client_name"
+  conf << confClients.defaults + confClients."$client_name"
   return conf
 }
