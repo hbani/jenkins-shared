@@ -2,7 +2,51 @@ defaults:
   configurationS3Url: s3://mfx-compass-customer-config
 
 pepperstone:
-  tickStoreUrl: "bootstrap.ldn.simulation.properties"
   tradingHost: pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com
   bootstrapProperties: bootstrap.simulation.properties
   tickStoreS3Bucket: pepperstone-production-tickstore
+
+crypto-euw1:
+  tradingHost: crypto-euwest1-prod-compass-1.int.prod.mahimarkets.com
+  bootstrapProperties: bootstrap.simulation.properties
+  tickStoreS3Bucket: crypto-euw1-production-tickstore
+
+crypto-euw2:
+  tradingHost: crypto-euwest2-prod-compass-1.int.prod.mahimarkets.com
+  bootstrapProperties: bootstrap.simulation.properties
+  tickStoreS3Bucket: crypto-euw2-production-tickstore
+
+crypto-apn1:
+  tradingHost: crypto-apnortheast1-prod-compass-1.int.prod.mahimarkets.com
+  bootstrapProperties: bootstrap.simulation.properties
+  tickStoreS3Bucket: crypto-apn1-production-tickstore
+
+hfmarkets:
+  tradingHost: hfmarkets-ln-trading-1.int.pgk6.beeks.prod.mahimarkets.com
+  bootstrapProperties: bootstrap.simulation.properties
+  tickStoreS3Bucket: hfmarkets-production-tickstore
+
+valutrades:
+  tradingHost: valutrades-ny-trading-1.int.m7bs.beeks.prod.mahimarkets.com
+  bootstrapProperties: bootstrap.simulation.properties
+  tickStoreS3Bucket: mahiprod-eu-west-1-file-persister
+
+think:
+  tradingHost: think-ln-trading-1.int.yoon.beeks.prod.mahimarkets.com
+  bootstrapProperties: bootstrap.simulation.properties
+  tickStoreS3Bucket: mahiprod-eu-west-1-file-persister
+
+echo:
+  tradingHost: echo-euwest2-prod-firehose-2.int.echo.mahifx.com
+  bootstrapProperties: bootstrap.simulation.properties
+  tickStoreS3Bucket: mahiprod-eu-west-1-file-persister
+
+go_markets:
+  tradingHost: gomarkets-ln-trading-1.int.fd01.beeks.mfx-prod.mahifx.com
+  bootstrapProperties: bootstrap.simulation.properties
+  tickStoreS3Bucket: mahiprod-eu-west-1-file-persister
+
+mfp:
+  tradingHost: mfp-ln-trading-1.int.fl09.beeks.prod.mahimarkets.com
+  bootstrapProperties: bootstrap.simulation.properties
+  tickStoreS3Bucket: mfp-production-tickstore
