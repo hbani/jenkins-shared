@@ -1,0 +1,20 @@
+-Dbacktest.alternateProcessNames=${params.alternateProcessNames} \
+<% out << (params.additionalSysprops != null && params.additionalSysprops != ""? params.additionalSysprops.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %> \
+com.x.integration.pricing.MfxCompassPricingBacktestEcho \
+--name=signalCFDProcess1 \
+--env=local-live,singlebroker,backtest \
+--loadConfig="${configurationS3Url}/${params.client_name.toUpperCase()}/${params.client_name.toUpperCase()}_config-update.json.gz" \
+--graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
+--forceConfig=pricing.adjustmentSignalsProducedInProcess=boolean:true \
+--client="${params.client}" \
+--jobId=$env.BUILD_TAG \
+--jobDescription="'${params.description.replaceAll("\\s","")}'" \
+--from="${params.from}" \
+--to="${params.to}" \
+--onlyInstruments=$params.instrumentCsv} \
+--tickStoreUrl="s3://${tickStoreS3Bucket}/${params.client_name}/${tradingHost}/starfishFilePersisterExternalMarketData1" \
+--market=${params.pricingMarket} \
+--disableInstrumentStatusInhibition \
+--dumpInputMarkets \
+<% out << (params.useHistoricS3Version? " --useHistoricS3Version": " " ) %> \
+<% out << (params.additionalArgs != null && params.additionalArgs != "" ? params.additionalArgs.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %>
