@@ -2,7 +2,7 @@
 com.x.integration.analytics.CompassSimulationProcess \
 --name=backtest \
 --env=local-live,backtest \
-<% out << (params.client_name.contains("-") ? "--loadConfig=${configurationS3Url}/${params.client_name.split('-')[0].toUpperCase()}/${params.client_name.split('-')[0].toUpperCase()}_config-update.json.gz": "--loadConfig=${configurationS3Url}/${params.client_name.toUpperCase()}/${params.client_name.toUpperCase()}_config-update.json.gz" ) %> \
+--loadConfig=${configurationS3Url}/<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0].toUpperCase(): params.client_name.toUpperCase()) %>/<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0]: params.client_name) %>_config-update.json.gz \
 <% out << (params.disableFastMarkets != null && params.disableFastMarkets == false ? " ": " --forceConfig=pricing.fastmarket.config=null" ) %> \
 --forceConfig=risk.varEquivalentRisk.maxVarLevel=double:<% out << (params.maxVarLevel != null && params.maxVarLevel != "" ? params.maxVarLevel: maxVarLevel ) %> \
 --forceConfig=hedging.rules.aggressive.dynamicOrderSpeedScaling=double:${params.dynamicOrderSpeedScaling} \
@@ -11,10 +11,10 @@ com.x.integration.analytics.CompassSimulationProcess \
 --forceConfig=analytics.hedgingDecisions.persist=boolean:false \
 <% out << (params.hybridInstrumentToProfileMappings != null && params.hybridInstrumentToProfileMappings != "" ? " --forceConfig=hedging.rules.profiles.instrumentToProfileMappings=json:${params.hybridInstrumentToProfileMappings}": " " ) %> \
 --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
---jmsStoreUrl="s3://${tickStoreS3Bucket}/${params.client_name}/${tradingHost}/jmsFilePersisterSystemGuaranteed1" \
---tickStoreUrl="s3://${tickStoreS3Bucket}/${params.client_name}/${tradingHost}/starfishFilePersisterExternalMarketData1" \
+--jmsStoreUrl=s3://${tickStoreS3Bucket}/<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0]: params.client_name) %>/${tradingHost}/jmsFilePersisterSystemGuaranteed1 \
+--tickStoreUrl=s3://${tickStoreS3Bucket}/<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0]: params.client_name) %>/${tradingHost}/starfishFilePersisterExternalMarketData1 \
 --outPath="${outputPath}" \
---client=$params.client_name \
+--client=<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0]: params.client_name) %> \
 --jobId=$env.BUILD_TAG \
 --jobDescription="'${params.description.replaceAll("\\s","")}'" \
 --from="${params.from}" \
