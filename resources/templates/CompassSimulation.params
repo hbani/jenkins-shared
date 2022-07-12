@@ -2,7 +2,7 @@
 com.x.integration.analytics.CompassSimulationProcess \
 --name=backtest \
 --env=local-live,backtest \
---loadConfig=${configurationS3Url}/<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0].toUpperCase(): params.client_name.toUpperCase()) %>/<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0]: params.client_name) %>_config-update.json.gz \
+--loadConfig=${configurationS3Url}/<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0].toUpperCase(): params.client_name.toUpperCase()) %>/<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0].toUpperCase(): params.client_name.toUpperCase()) %>_config-update.json.gz \
 <% out << (params.disableFastMarkets != null && params.disableFastMarkets == false ? " ": " --forceConfig=pricing.fastmarket.config=null" ) %> \
 --forceConfig=risk.varEquivalentRisk.maxVarLevel=double:<% out << (params.maxVarLevel != null && params.maxVarLevel != "" ? params.maxVarLevel: maxVarLevel ) %> \
 --forceConfig=hedging.rules.aggressive.dynamicOrderSpeedScaling=double:${params.dynamicOrderSpeedScaling} \
