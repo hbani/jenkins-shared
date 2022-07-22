@@ -1,18 +1,16 @@
--Dbacktest.alternateProcessNames=${params.alternateProcessNames} \
-<% out << (params.additionalSysprops != null && params.additionalSysprops != ""? params.additionalSysprops.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %> \
 com.x.integration.pricing.MfxCompassPricingBacktestEcho \
---name=signalCFDProcess1 \
+--name=signalProcess1 \
 --env=local-live,singlebroker,backtest \
---loadConfig="${configurationS3Url}/${params.client_name.toUpperCase()}/${params.client_name.toUpperCase()}_config-update.json.gz" \
+--loadConfig=${configurationS3Url}/<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0].toUpperCase(): params.client_name.toUpperCase()) %>/<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0].toUpperCase(): params.client_name.toUpperCase()) %>_config-update.json.gz \
 --graphBuilderHelperFactory=com.x.processbuilder.SimulationGraphBuilderHelperFactory \
 --forceConfig=pricing.adjustmentSignalsProducedInProcess=boolean:true \
---client="${params.client}" \
+--client=<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0]: params.client_name) %> \
 --jobId=$env.BUILD_TAG \
 --jobDescription="'${params.description.replaceAll("\\s","")}'" \
 --from="${params.from}" \
 --to="${params.to}" \
---onlyInstruments=$params.instrumentCsv} \
---tickStoreUrl="s3://${tickStoreS3Bucket}/${params.client_name}/${tradingHost}/starfishFilePersisterExternalMarketData1" \
+--onlyInstruments=$params.instrumentCsv \
+--tickStoreUrl=s3://${tickStoreS3Bucket}/<% out << (params.client_name.contains("-") ? params.client_name.split("-")[0]: params.client_name) %>/${tradingHost}/starfishFilePersisterExternalMarketData1 \
 --market=${params.pricingMarket} \
 --disableInstrumentStatusInhibition \
 --dumpInputMarkets \

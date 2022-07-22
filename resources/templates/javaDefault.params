@@ -4,6 +4,7 @@
 -Xms11G \
 -XX:+UseParallelGC \
 -XX:+PerfDisableSharedMem \
+-XX:+HeapDumpOnOutOfMemoryError \
 -DbuilderHelperFactory=com.x.integration.MahiSimulationProcessBuilderHelperFactory \
 -DGraphPerformanceInstrumentation.PERFORMANCE_INSTRUMENTATION_MODE=Minimal \
 -Dbootstrap.properties=file:${configRoot}/${bootstrapProperties} \
@@ -14,3 +15,6 @@
 -Dbackstatsprovider.suppress.dump=true \
 -Dcompass.backtest=true \
 -Dfile.encoding=UTF-8 \
+-Dbacktest.alternateProcessNames=${params.alternateProcessNames} \
+<% out << (delegate.hasVariable('location')? "-Dlocation=${location}" : "") %> \
+<% out << (params.additionalSysprops != null && params.additionalSysprops != ""? params.additionalSysprops.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %> \

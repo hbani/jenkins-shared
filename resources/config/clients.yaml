@@ -1,52 +1,67 @@
 defaults:
   configurationS3Url: s3://mfx-compass-customer-config
 
-pepperstone:
+pepperstone.NYC:
   tradingHost: pepperstone-ny-trading-1.int.p7l0.beeks.prod.mahimarkets.com
   bootstrapProperties: bootstrap.simulation.properties
   tickStoreS3Bucket: pepperstone-production-tickstore
+  location: NY4.NYC
 
-crypto-euw1:
+crypto-EUW1:
   tradingHost: crypto-euwest1-prod-compass-1.int.prod.mahimarkets.com
-  bootstrapProperties: bootstrap.simulation.properties
+  bootstrapProperties: bootstrap.ldn.simulation.properties
   tickStoreS3Bucket: crypto-euw1-production-tickstore
+  location: eu-west-1.eu-west-1
 
-crypto-euw2:
+crypto-EUW2:
   tradingHost: crypto-euwest2-prod-compass-1.int.prod.mahimarkets.com
-  bootstrapProperties: bootstrap.simulation.properties
+  bootstrapProperties: bootstrap.ldn.simulation.properties
   tickStoreS3Bucket: crypto-euw2-production-tickstore
+  location: eu-west-2.eu-west-2
 
-crypto-apn1:
+crypto-APN1:
   tradingHost: crypto-apnortheast1-prod-compass-1.int.prod.mahimarkets.com
-  bootstrapProperties: bootstrap.simulation.properties
+  bootstrapProperties: bootstrap.ldn.simulation.properties
   tickStoreS3Bucket: crypto-apn1-production-tickstore
+  location: ap-northeast-1.ap-northeast-1
 
-hfmarkets:
+hfmarkets-LDN:
   tradingHost: hfmarkets-ln-trading-1.int.pgk6.beeks.prod.mahimarkets.com
-  bootstrapProperties: bootstrap.simulation.properties
+  bootstrapProperties: bootstrap.ldn.simulation.properties
   tickStoreS3Bucket: hfmarkets-production-tickstore
+  location: LD5.LDN
 
-valutrades:
+valutrades-LDN:
   tradingHost: valutrades-ny-trading-1.int.m7bs.beeks.prod.mahimarkets.com
   bootstrapProperties: bootstrap.simulation.properties
   tickStoreS3Bucket: mahiprod-eu-west-1-file-persister
+  location: LD5.LDN
 
-think:
+think-LDN:
   tradingHost: think-ln-trading-1.int.yoon.beeks.prod.mahimarkets.com
-  bootstrapProperties: bootstrap.simulation.properties
+  bootstrapProperties: bootstrap.ldn.simulation.properties
   tickStoreS3Bucket: mahiprod-eu-west-1-file-persister
+  location: LD5.LDN
 
-echo:
+echo-EUW2:
   tradingHost: echo-euwest2-prod-firehose-2.int.echo.mahifx.com
   bootstrapProperties: bootstrap.simulation.properties
   tickStoreS3Bucket: mahiprod-eu-west-1-file-persister
 
-go_markets:
+go_markets-LDN:
   tradingHost: gomarkets-ln-trading-1.int.fd01.beeks.mfx-prod.mahifx.com
-  bootstrapProperties: bootstrap.simulation.properties
+  bootstrapProperties: bootstrap.ldn.simulation.properties
   tickStoreS3Bucket: mahiprod-eu-west-1-file-persister
+  location: LD5.LDN
 
-mfp:
+mfp-LDN:
   tradingHost: mfp-ln-trading-1.int.fl09.beeks.prod.mahimarkets.com
-  bootstrapProperties: bootstrap.simulation.properties
+  bootstrapProperties: bootstrap.ldn.simulation.properties
   tickStoreS3Bucket: mfp-production-tickstore
+  location: LD5.LDN
+
+liquidity-LDN:
+  tradingHost: liquidity-ln-trading-1.int.lk7y.beeks.prod.mahimarkets.com
+  bootstrapProperties: bootstrap.ldn.simulation.properties
+  tickStoreS3Bucket: liquidity-production-tickstore
+  location: LD5.LDN

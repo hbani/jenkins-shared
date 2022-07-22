@@ -10,8 +10,7 @@ if (email_notify) {
 
 <h3>${client_name}</h3>
 <table>
-<tr><td><b>Goal:</b></td><td>${params.goal}</td></tr>
-<tr><td><b>Changes:</b></td><td>${params.changes}</td></tr>
+<tr><td><b>Description:</b></td><td>${params.description}</td></tr>
 <tr><td><b>Data:</b></td><td>${params.inputS3Url}</td></tr>
 <tr><td><b>MaxVarLevel:</b></td><td>${conf.maxVarLevel}</td></tr>
 <tr><td><b>Config:</b></td><td>${conf.configurationS3Url}</td></tr>

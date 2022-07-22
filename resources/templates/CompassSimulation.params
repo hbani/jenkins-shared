@@ -1,4 +1,4 @@
-<% out << (params.additionalSysprops != null && params.additionalSysprops != ""? params.additionalSysprops.split(/[\r\n]/).collect { it.trim() == ''? '' : '\'' + it.trim().replace('\'', '\'\\\'\'') + '\'' }.join(' '): " " ) %> \
+-Dbacktest.manage.clientTrades=true \
 com.x.integration.analytics.CompassSimulationProcess \
 --name=backtest \
 --env=local-live,backtest \
