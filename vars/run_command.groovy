@@ -13,10 +13,10 @@ def call(client_name,classname) {
   free -m
   du -ms /tmp/*
 
-  java \
+  echo "\
     -cp current/lib:current/lib/* \
     ${default_params} \
     ${classparams}
-    
+    "
   """
 }
